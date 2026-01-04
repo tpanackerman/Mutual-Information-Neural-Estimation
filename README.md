@@ -2,8 +2,8 @@
 
 Ứng dụng mạng neuron trong việc ước lượng thông tin tương hỗ 
 
-##Cài đặt
+## Cài đặt
 pip install -r setup.txt
 
-##Chạy chương trình
+## Chạy chương trình
 streamlit run main.py
