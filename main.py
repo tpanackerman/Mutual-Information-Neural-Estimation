@@ -4,18 +4,15 @@ import torch.optim as optim
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Import từ các module vệ tinh
 from datasets import get_data
 from utils import mine_loss, true_mi_gaussian
 from models import MineNetwork
 
-# --- CONFIG ---
 st.set_page_config(page_title="MINE Project Demo", layout="wide")
 
 st.title("MINE: Mutual Information Neural Estimation")
 st.markdown("---")
 
-# --- SIDEBAR CONTROL ---
 st.sidebar.header("Cấu hình")
 
 data_type = st.sidebar.selectbox("Loại dữ liệu", ('gaussian', 'cubic', 'sine', 'circle'))
@@ -28,10 +25,8 @@ dim = st.sidebar.selectbox("Số chiều (Dimension)", [1, 2, 5, 10], index=0)
 iter_count = st.sidebar.number_input("Số vòng lặp (Iterations)", value=1000)
 lr = st.sidebar.number_input("Learning Rate", value=0.001, format="%.4f")
 
-# --- MAIN DISPLAY ---
 col_left, col_right = st.columns(2)
 
-# 1. Visualize Data
 with col_left:
     st.subheader("1. Dữ liệu đầu vào")
     x_vis, y_vis = get_data(300, 1, data_type, rho) # Luôn vẽ 1D để dễ nhìn
@@ -51,7 +46,6 @@ with col_right:
     
     start_btn = st.button("CHẠY DEMO", type="primary", use_container_width=True)
 
-# --- TRAINING LOOP ---
 if start_btn:
     model = MineNetwork(input_dim=dim*2)
     optimizer = optim.Adam(model.parameters(), lr=lr)
@@ -79,7 +73,7 @@ if start_btn:
             progress_bar.progress((i+1)/iter_count)
             
             fig2, ax2 = plt.subplots(figsize=(10, 3))
-            ax2.plot(mi_history, label='MINE Estimate', color='#e74c3c')
+            ax2.plot(mi_history, label='MI Estimate', color='#e74c3c')
             if data_type == 'gaussian':
                 ax2.axhline(theory_mi, color='blue', linestyle='--', label='True MI')
             ax2.set_xlabel("Iterations")
@@ -88,5 +82,6 @@ if start_btn:
             ax2.grid(True, alpha=0.3)
             
             chart_placeholder.pyplot(fig2)
+
 
     st.success(f"Hoàn thành! Kết quả cuối cùng: {mi_history[-1]:.4f}")
