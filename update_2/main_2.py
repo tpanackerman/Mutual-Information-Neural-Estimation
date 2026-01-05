@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from datasets import get_data
 from utils import mine_loss, true_mi_gaussian
-from models import SimpleMineNetwork, ComplexMineNetwork 
+from model_update import SimpleMineNetwork, ComplexMineNetwork 
 
 st.set_page_config(page_title="MINE Project", layout="wide")
 st.title("MINE: Mutual Information Neural Estimation")
