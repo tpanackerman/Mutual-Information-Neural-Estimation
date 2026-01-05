@@ -1,1 +1,1 @@
-from .model import SimpleMineNetwork, ComplexMineNetwork
+from .model_update import SimpleMineNetwork, ComplexMineNetwork
