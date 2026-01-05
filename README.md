@@ -20,5 +20,5 @@ pip install -r setup.txt
 streamlit run main.py
 
 ## Yêu cầu sửa code của giáo viên: 
-- Update_1: so sánh tốc độ học khi thay đổi Learning Rate của mô hình. Chạy lệnh: streamlit run main_1.py
-- Update_2: so sánh tốc độ học khi thay đổi số lượng layer của mô hình. Chạy lệnh: streamlit run main_2.py
+- Update_1: so sánh tốc độ học khi thay đổi Learning Rate của mô hình. 
+- Update_2: so sánh tốc độ học khi thay đổi số lượng layer của mô hình. 
