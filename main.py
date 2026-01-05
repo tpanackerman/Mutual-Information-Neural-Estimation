@@ -22,7 +22,7 @@ if data_type == 'gaussian':
     rho = st.sidebar.slider("Hệ số tương quan (Rho)", -0.99, 0.99, 0.9, 0.01)
 
 dim = st.sidebar.selectbox("Số chiều (Dimension)", [1, 2, 5, 10], index=0)
-iter_count = st.sidebar.number_input("Số vòng lặp (Iterations)", value=1000)
+iter_count = st.sidebar.number_input("Số vòng lặp (Epoch)", value=1000)
 lr = st.sidebar.number_input("Learning Rate", value=0.001, format="%.4f")
 
 col_left, col_right = st.columns(2)
@@ -56,7 +56,7 @@ if start_btn:
     
     for i in range(iter_count):
         # 1. Get data
-        x, y = get_data(128, dim, data_type, rho)
+        x, y = get_data(256, dim, data_type, rho)
         x_t = torch.FloatTensor(x)
         y_t = torch.FloatTensor(y)
         
@@ -76,7 +76,7 @@ if start_btn:
             ax2.plot(mi_history, label='MI Estimate', color='#e74c3c')
             if data_type == 'gaussian':
                 ax2.axhline(theory_mi, color='blue', linestyle='--', label='True MI')
-            ax2.set_xlabel("Iterations")
+            ax2.set_xlabel("Epoch")
             ax2.set_ylabel("Mutual Information")
             ax2.legend()
             ax2.grid(True, alpha=0.3)
@@ -85,3 +85,4 @@ if start_btn:
 
 
     st.success(f"Hoàn thành! Kết quả cuối cùng: {mi_history[-1]:.4f}")
+
