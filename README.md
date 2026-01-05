@@ -4,8 +4,8 @@
 
 ## Giới thiệu đề tài
 Mục tiêu của dự án là xây dựng một mô hình Deep Learning để ước lượng lượng Thông tin tương hỗ (Mutual Information - MI) giữa các biến ngẫu nhiên liên tục.
-Phương pháp: Sử dụng mạng Neural để tối ưu hóa cận dưới Donsker-Varadhan (MINE).
-Dữ liệu kiểm chứng: Dữ liệu phân phối Gaussian đa chiều (vì loại dữ liệu này có thể tính được MI chính xác bằng công thức toán học để so sánh).
+- Phương pháp: Sử dụng mạng Neural để tối ưu hóa cận dưới Donsker-Varadhan (MINE).
+- Dữ liệu kiểm chứng: Dữ liệu phân phối Gaussian đa chiều (vì loại dữ liệu này có thể tính được MI chính xác bằng công thức toán học để so sánh).
 
 ## Cài đặt
 pip install -r setup.txt
